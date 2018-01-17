@@ -49,7 +49,7 @@ namespace ApplicationManagement.DbModel
         [Required]
         public ReligionName Religion { get; set; }
         [Required, Range(1000000000, 99999999999999999)]                    //Should Be Key
-        public UInt64 NId { get; set; }
+        public Int64 NId { get; set; }
 
         public virtual ICollection<EducationResult> EducationalResults { get; set; }
 

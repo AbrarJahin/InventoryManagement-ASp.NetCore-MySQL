@@ -17,7 +17,7 @@ namespace ApplicationManagement.DbModel
         public string Description { get; set; }
 
         [Required, Display(Name = "পদের সংখ্যা", Prompt = "No Of Total Available Posts")]
-        public UInt16 NoOfTotalAvailablePosts { get; set; }
+        public Int64 NoOfTotalAvailablePosts { get; set; }
 
         [Required, MinLength(3), MaxLength(200), Display(Name = "চাকুরীর বিজ্ঞপ্তির ছবি", Prompt = "Should be implemented with file upload")]
         public string NoticeImageFileUrl { get; set; }

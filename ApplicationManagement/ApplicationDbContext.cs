@@ -27,13 +27,9 @@ public class ApplicationDbContext : DbContext
     public DbSet<TeacherApplication> TeacherApplications { get; set; }
     public DbSet<Training> Trainings { get; set; }
 
-    //Configure Database Settings
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        //Should be done by this way - https://stackoverflow.com/questions/39083372/how-to-read-connection-string-in-net-core
-        //Configuration.GetConnectionString("DefaultConnection");
-        optionsBuilder.UseSqlite("Filename=./applicationDB.db");
-    }
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+: base(options)
+    {}
 
     public override int SaveChanges()
     {

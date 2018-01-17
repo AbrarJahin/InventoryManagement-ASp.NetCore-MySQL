@@ -18,9 +18,9 @@ namespace ApplicationManagement.DbModel
         [Required]
         public OrganizationType OrganizationType { get; set; }
         [Required]
-        public UInt16 SalaryScale { get; set; }
+        public Int64 SalaryScale { get; set; }
         [Required]
-        public UInt16 TotalSalary { get; set; }
+        public Int64 TotalSalary { get; set; }
         [Required, DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime StartDate { get; set; }
         [Required, DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]

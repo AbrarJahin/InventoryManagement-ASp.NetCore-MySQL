@@ -12,7 +12,7 @@ namespace ApplicationManagement.DbModel
         [Required, DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateOfDraftOrOrder { get; set; }
         [Required]
-        public UInt16 AmountOfMoney { get; set; }
+        public Int64 AmountOfMoney { get; set; }
         [Required, MinLength(3), MaxLength(50)]
         public string NameOfBank { get; set; }
         [Required, MinLength(3), MaxLength(50)]

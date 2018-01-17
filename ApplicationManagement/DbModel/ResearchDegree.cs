@@ -19,6 +19,6 @@ namespace ApplicationManagement.DbModel
         [Required]
         public string UniversityName { get; set; }
         [Required]
-        public UInt16 YearOfPassing { get; set; }
+        public Int64 YearOfPassing { get; set; }
     }
 }

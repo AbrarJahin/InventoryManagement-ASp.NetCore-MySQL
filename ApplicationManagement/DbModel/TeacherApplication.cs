@@ -24,7 +24,7 @@ namespace ApplicationManagement.DbModel
 
         [Required]
         public Decision IsGettingPension { get; set; }
-        public UInt64 PensionAmount { get; set; }
+        public Int64 PensionAmount { get; set; }
         [MinLength(3), MaxLength(50)]
         public string PensionOrganizationName { get; set; }
 

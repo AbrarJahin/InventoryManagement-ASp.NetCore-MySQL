@@ -11,30 +11,21 @@ namespace ApplicationManagement
 {
     public class Startup
     {
-        public IConfigurationRoot Configuration { get; }
+        public IConfiguration Configuration { get; }
         private ILogger _logger;
+        private IHostingEnvironment env;
 
         public Startup(IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            this.env = env;
             _logger = loggerFactory.CreateLogger<Startup>();
-
+            //Configuration = configuration;
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
-
-            using (var context = new ApplicationDbContext())
-            {
-                if (env.IsDevelopment())
-                {
-                    context.Database.EnsureDeleted();
-                }
-                // Migrate the database
-                context.Database.EnsureCreated();
-                context.Database.Migrate();
-            }
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -43,17 +34,19 @@ namespace ApplicationManagement
             //Add Configuration Service
             services.AddSingleton<IConfiguration>(Configuration);
 
-            /*
-            //Configure DB Connection String
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("DbContextSettings:ConnectionString")));
-            */
-
-            // Add EntityFramework Service.
-            services.AddEntityFrameworkSqlite().AddDbContext<ApplicationDbContext>();
-
             // Add framework services.
             services.AddMvc();
+
+            //Configure Connection and EntityFramework Service.
+#if DEBUG
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseMySQL(Configuration.GetConnectionString("DevelopConnection"),
+                    providerOptions => providerOptions.CommandTimeout(60))
+                .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
+            );
+#else
+            services.AddDbContext<ApplicationDbContext>(options => options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
+#endif
 
             //HTML minifire service
             //With This - using WebMarkupMin.AspNetCore1;
@@ -118,6 +111,24 @@ namespace ApplicationManagement
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            // NOTE: this must go at the end of Configure
+            var serviceScopeFactory = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>();
+            using (var serviceScope = serviceScopeFactory.CreateScope())
+            {
+                var dbContext = serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
+                try
+                {
+#if DEBUG
+                    dbContext.Database.EnsureDeleted();
+#endif
+                    dbContext.Database.EnsureCreatedAsync();
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex.ToString());
+                }
+            }
         }
     }
 }
