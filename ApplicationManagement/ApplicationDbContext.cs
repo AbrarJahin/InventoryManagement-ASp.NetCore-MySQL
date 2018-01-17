@@ -26,6 +26,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<ResearchDegree> ResearchDegrees { get; set; }
     public DbSet<TeacherApplication> TeacherApplications { get; set; }
     public DbSet<Training> Trainings { get; set; }
+    public DbSet<Entry> Entries { get; set; }
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
 : base(options)
