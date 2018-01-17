@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.EntityFrameworkCore.DataAnnotations;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using static ApplicationManagement.DbModel.CustomTypes;
@@ -7,7 +8,7 @@ namespace ApplicationManagement.DbModel
 {
     public class JobCircular : BaseEntity
     {
-        [Required, MinLength(3), MaxLength(50), Display(Name = "পদের নাম", Prompt = "Name of the Post")]
+        [Required, MinLength(3), MaxLength(50), Display(Name = "পদের নাম", Prompt = "Name of the Post")]  //, MySqlCharset("utf8_unicode_ci")
         public string PostName { get; set; }
 
         [Required, Display(Name = "এপ্লিকেশন ফর্মের নাম", Prompt = "Name of the Application Form")]

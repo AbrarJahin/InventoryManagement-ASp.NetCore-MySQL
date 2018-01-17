@@ -122,7 +122,7 @@ namespace ApplicationManagement
 #if DEBUG
                     dbContext.Database.EnsureDeleted();
 #endif
-                    dbContext.Database.EnsureCreatedAsync();
+                    dbContext.Database.EnsureCreated();
                 }
                 catch (Exception ex)
                 {
