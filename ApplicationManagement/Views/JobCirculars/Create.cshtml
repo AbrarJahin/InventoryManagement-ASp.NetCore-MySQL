@@ -1,0 +1,107 @@
+﻿@model ApplicationManagement.DbModel.JobCircular
+
+@{
+    ViewData["Title"] = "নতুন চাকরির বিজ্ঞপ্তি প্রদান";
+}
+
+<form asp-action="Create" method="post" class="form-horizontal">
+
+    <fieldset class="fieldset-bordered">
+        <legend class="legend-bordered">Post New job Circular</legend>
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="PostName" class="control-label col-xs-4 vertical-middle"></label>
+                    <div class="col-xs-8">
+                        <input asp-for="PostName" class="form-control" required />
+                        <span asp-validation-for="PostName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="NoOfTotalAvailablePosts" class="control-label col-xs-4 vertical-middle"></label>
+                    <div class="col-xs-8">
+                        <input asp-for="NoOfTotalAvailablePosts" class="form-control" type="number" min="1" max="999" required />
+                        <span asp-validation-for="NoOfTotalAvailablePosts" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label col-xs-2 vertical-middle"></label>
+                    <div class="col-xs-10">
+                        <textarea asp-for="Description" class="form-control" rows="5"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="ApplicationFormat" class="control-label col-xs-4 vertical-middle"></label>
+                    <div class="col-xs-8">
+                        <select asp-for="ApplicationFormat" class="form-control">
+                            <option value=0>শিক্ষক (Teacher)</option>
+                            <option value=1>ছাত্র ভর্তি (Student Admission)</option>
+                            <option value=2>অফিসার (Officer)</option>
+                            <option value=3>স্টাফ (Stuff)</option>
+                        </select>
+                        <span asp-validation-for="ApplicationFormat" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="NoticeImageFileUrl" class="control-label col-xs-4 vertical-middle"></label>
+                    <div class="col-xs-8">
+                        <input asp-for="NoticeImageFileUrl" class="form-control" required />
+                        <span asp-validation-for="NoticeImageFileUrl" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="StartDate" class="control-label col-xs-4 vertical-middle"></label>
+                    <div class="col-xs-8">
+                        <input asp-for="StartDate" type="text" class="form-control DatePicker" required />
+                        <span asp-validation-for="StartDate" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="EndDate" class="control-label col-xs-4 vertical-middle"></label>
+                    <div class="col-xs-8">
+                        <input asp-for="EndDate" type="text" class="form-control DatePicker" required />
+                        <span asp-validation-for="EndDate" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-offset-4 col-xs-4">
+                <button type="submit" class="btn btn-primary btn-block">প্রদান করুন (Post the Application)</button>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
