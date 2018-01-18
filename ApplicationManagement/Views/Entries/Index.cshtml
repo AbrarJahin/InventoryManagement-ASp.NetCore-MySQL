@@ -1,0 +1,155 @@
+@model IEnumerable<ApplicationManagement.DbModel.Entry>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.EntryDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InitialCount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NameOfSupplier)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AddressOfSupplier)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DescriptionOfProduct)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NumberOfSuppliedProduct)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SuppliedProductUnitPrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SuppliedProductTotalPrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalNoOfProductAfterInserted)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ReceiveDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NameOfUser)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AddressOfUser)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DemandnoteNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NumberOfReceivedProduct)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalNoOfProductAfterdeduction)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatorUserId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatorIPAddress)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastModifiedTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastModifireUserId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastModifireIPAddress)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InitialCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameOfSupplier)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddressOfSupplier)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescriptionOfProduct)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfSuppliedProduct)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SuppliedProductUnitPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SuppliedProductTotalPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalNoOfProductAfterInserted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReceiveDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameOfUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddressOfUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DemandnoteNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfReceivedProduct)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalNoOfProductAfterdeduction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatorUserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatorIPAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastModifiedTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastModifireUserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastModifireIPAddress)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
