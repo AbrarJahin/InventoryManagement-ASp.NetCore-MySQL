@@ -1,15 +1,13 @@
-@model ApplicationManagement.DbModel.Entry
+﻿@model ApplicationManagement.DbModel.Entry
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "যোগকৃত প্রোডাক্ট হালনাগাদ";
 }
 
 <h2>Edit</h2>
 
 <form asp-action="Edit">
     <div class="form-horizontal">
-        <h4>Entry</h4>
-        <hr />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
             <label asp-for="EntryDate" class="col-md-2 control-label"></label>
@@ -117,50 +115,6 @@
             </div>
         </div>
         <input type="hidden" asp-for="Id" />
-        @*
-        <div class="form-group">
-            <label asp-for="CreatedTime" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="CreatedTime" class="form-control" />
-                <span asp-validation-for="CreatedTime" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="CreatorUserId" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="CreatorUserId" class="form-control" />
-                <span asp-validation-for="CreatorUserId" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="CreatorIPAddress" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="CreatorIPAddress" class="form-control" />
-                <span asp-validation-for="CreatorIPAddress" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="LastModifiedTime" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="LastModifiedTime" class="form-control" />
-                <span asp-validation-for="LastModifiedTime" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="LastModifireUserId" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="LastModifireUserId" class="form-control" />
-                <span asp-validation-for="LastModifireUserId" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="LastModifireIPAddress" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="LastModifireIPAddress" class="form-control" />
-                <span asp-validation-for="LastModifireIPAddress" class="text-danger"></span>
-            </div>
-        </div>
-        *@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />

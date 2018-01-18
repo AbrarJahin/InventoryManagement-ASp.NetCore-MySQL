@@ -1,169 +1,175 @@
-@model ApplicationManagement.DbModel.Entry
+﻿@model ApplicationManagement.DbModel.Entry
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "নতুন প্রোডাক্ট যোগ";
 }
 
-<h2>Create</h2>
+<form asp-action="Create" method="post" class="form-horizontal">
+    <div asp-validation-summary="All" class="text-danger"></div>
 
-<form asp-action="Create">
-    <div class="form-horizontal">
-        <h4>Entry</h4>
-        <hr />
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group">
-            <label asp-for="EntryDate" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input type="text" asp-for="EntryDate" class="form-control DatePicker" />
-                <span asp-validation-for="EntryDate" class="text-danger"></span>
+    <fieldset class="fieldset-bordered">
+        <legend class="legend-bordered">সরবরাহকারীর অংশ</legend>
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="EntryDate" class="control-label col-xs-4 vertical-middle"></label>
+                    <div class="col-xs-8">
+                        <input type="text" asp-for="EntryDate" class="form-control DatePicker" />
+                        <span asp-validation-for="EntryDate" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="InitialCount" class="control-label col-xs-4 vertical-middle"></label>
+                    <div class="col-xs-8">
+                        <input asp-for="InitialCount" class="form-control" />
+                        <span asp-validation-for="InitialCount" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="NameOfSupplier" class="control-label col-xs-4 vertical-middle"></label>
+                    <div class="col-xs-8">
+                        <input asp-for="NameOfSupplier" class="form-control" />
+                        <span asp-validation-for="NameOfSupplier" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="AddressOfSupplier" class="control-label col-xs-4 vertical-middle"></label>
+                    <div class="col-xs-8">
+                        <textarea asp-for="AddressOfSupplier" class="form-control" rows="5"></textarea>
+                        <span asp-validation-for="AddressOfSupplier" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="DescriptionOfProduct" class="control-label col-xs-4 vertical-middle"></label>
+                    <div class="col-xs-8">
+                        <textarea asp-for="DescriptionOfProduct" class="form-control" rows="5"></textarea>
+                        <span asp-validation-for="DescriptionOfProduct" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="NumberOfSuppliedProduct" class="control-label col-xs-4 vertical-middle"></label>
+                    <div class="col-xs-8">
+                        <input asp-for="NumberOfSuppliedProduct" class="form-control" />
+                        <span asp-validation-for="NumberOfSuppliedProduct" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="SuppliedProductUnitPrice" class="control-label col-xs-4 vertical-middle"></label>
+                    <div class="col-xs-8">
+                        <input asp-for="SuppliedProductUnitPrice" class="form-control" />
+                        <span asp-validation-for="SuppliedProductUnitPrice" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="SuppliedProductTotalPrice" class="control-label col-xs-4 vertical-middle"></label>
+                    <div class="col-xs-8">
+                        <input asp-for="SuppliedProductTotalPrice" class="form-control" />
+                        <span asp-validation-for="SuppliedProductTotalPrice" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="TotalNoOfProductAfterInserted" class="control-label col-xs-4 vertical-middle"></label>
+                    <div class="col-xs-8">
+                        <input asp-for="TotalNoOfProductAfterInserted" class="form-control" />
+                        <span asp-validation-for="TotalNoOfProductAfterInserted" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <label asp-for="InitialCount" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="InitialCount" class="form-control" />
-                <span asp-validation-for="InitialCount" class="text-danger"></span>
+    </fieldset>
+    <fieldset class="fieldset-bordered">
+        <legend class="legend-bordered">ব্যবহারকারীর অংশ</legend>
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="ReceiveDate" class="control-label col-xs-4 vertical-middle"></label>
+                    <div class="col-xs-8">
+                        <input type="text" asp-for="ReceiveDate" class="form-control DatePicker" />
+                        <span asp-validation-for="ReceiveDate" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="NameOfUser" class="control-label col-xs-4 vertical-middle"></label>
+                    <div class="col-xs-8">
+                        <input asp-for="NameOfUser" class="form-control" />
+                        <span asp-validation-for="NameOfUser" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="AddressOfUser" class="control-label col-xs-4 vertical-middle"></label>
+                    <div class="col-xs-8">
+                        <textarea asp-for="AddressOfUser" class="form-control" rows="5"></textarea>
+                        <span asp-validation-for="AddressOfUser" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="DemandnoteNo" class="control-label col-xs-4 vertical-middle"></label>
+                    <div class="col-xs-8">
+                        <input asp-for="DemandnoteNo" class="form-control" />
+                        <span asp-validation-for="DemandnoteNo" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="NumberOfReceivedProduct" class="control-label col-xs-4 vertical-middle"></label>
+                    <div class="col-xs-8">
+                        <input asp-for="NumberOfReceivedProduct" class="form-control" />
+                        <span asp-validation-for="NumberOfReceivedProduct" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="TotalNoOfProductAfterdeduction" class="control-label col-xs-4 vertical-middle"></label>
+                    <div class="col-xs-8">
+                        <input asp-for="TotalNoOfProductAfterdeduction" class="form-control" />
+                        <span asp-validation-for="TotalNoOfProductAfterdeduction" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <label asp-for="NameOfSupplier" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="NameOfSupplier" class="form-control" />
-                <span asp-validation-for="NameOfSupplier" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="AddressOfSupplier" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="AddressOfSupplier" class="form-control" />
-                <span asp-validation-for="AddressOfSupplier" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="DescriptionOfProduct" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <textarea asp-for="DescriptionOfProduct" class="form-control" rows="5"></textarea>
-                <span asp-validation-for="DescriptionOfProduct" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="NumberOfSuppliedProduct" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="NumberOfSuppliedProduct" class="form-control" />
-                <span asp-validation-for="NumberOfSuppliedProduct" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="SuppliedProductUnitPrice" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="SuppliedProductUnitPrice" class="form-control" />
-                <span asp-validation-for="SuppliedProductUnitPrice" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="SuppliedProductTotalPrice" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="SuppliedProductTotalPrice" class="form-control" />
-                <span asp-validation-for="SuppliedProductTotalPrice" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="TotalNoOfProductAfterInserted" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="TotalNoOfProductAfterInserted" class="form-control" />
-                <span asp-validation-for="TotalNoOfProductAfterInserted" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="ReceiveDate" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="ReceiveDate" type="text" class="form-control DatePicker" />
-                <span asp-validation-for="ReceiveDate" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="NameOfUser" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="NameOfUser" class="form-control" />
-                <span asp-validation-for="NameOfUser" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="AddressOfUser" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="AddressOfUser" class="form-control" />
-                <span asp-validation-for="AddressOfUser" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="DemandnoteNo" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="DemandnoteNo" class="form-control" />
-                <span asp-validation-for="DemandnoteNo" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="NumberOfReceivedProduct" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="NumberOfReceivedProduct" class="form-control" />
-                <span asp-validation-for="NumberOfReceivedProduct" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="TotalNoOfProductAfterdeduction" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="TotalNoOfProductAfterdeduction" class="form-control" />
-                <span asp-validation-for="TotalNoOfProductAfterdeduction" class="text-danger"></span>
-            </div>
-        </div>
-        @*
-        <div class="form-group">
-            <label asp-for="CreatedTime" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="CreatedTime" class="form-control" />
-                <span asp-validation-for="CreatedTime" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="CreatorUserId" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="CreatorUserId" class="form-control" />
-                <span asp-validation-for="CreatorUserId" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="CreatorIPAddress" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="CreatorIPAddress" class="form-control" />
-                <span asp-validation-for="CreatorIPAddress" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="LastModifiedTime" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="LastModifiedTime" class="form-control" />
-                <span asp-validation-for="LastModifiedTime" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="LastModifireUserId" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="LastModifireUserId" class="form-control" />
-                <span asp-validation-for="LastModifireUserId" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="LastModifireIPAddress" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="LastModifireIPAddress" class="form-control" />
-                <span asp-validation-for="LastModifireIPAddress" class="text-danger"></span>
-            </div>
-        </div>
-        *@
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+    </fieldset>
+    <div class="form-group">
+        <div class="col-xs-offset-4 col-xs-4">
+            <button type="submit" class="btn btn-primary btn-block">যোগ করুন (Add)</button>
         </div>
     </div>
 </form>

@@ -5,11 +5,11 @@ namespace ApplicationManagement.DbModel
 {
     public class Entry : BaseEntity
     {
-        [Required, Display(Name = "তারিখ", Prompt = "Date of Entry")]  //, MySqlCharset("utf8_unicode_ci")
+        [Required(ErrorMessage = "দয়া করে পণ্য গ্রহণ করার তারিখ দিন"), Display(Name = "তারিখ", Prompt = "Date of Entry")]  //, MySqlCharset("utf8_unicode_ci")
         public DateTime EntryDate { get; set; }
-        [Required, Range(0, int.MaxValue), Display(Name = "প্রারম্ভিক স্থিতি", Prompt = "Initial count")]
+        [Required, Range(0, int.MaxValue, ErrorMessage = "প্রারম্ভিক স্থিতির সঠিক সংখ্যা দিন"), Display(Name = "প্রারম্ভিক স্থিতি", Prompt = "Initial count")]
         public int InitialCount { get; set; }
-        [Required, MinLength(3), MaxLength(50), Display(Name = "সরবরাহকারীর নাম", Prompt = "Name of the Supplier")]
+        [Required, MinLength(3, ErrorMessage = "সরবরাহকারীর নাম নূনতম ৩ অক্ষর হতে হবে"), MaxLength(50, ErrorMessage = "সরবরাহকারীর নাম সর্বোচ্চ ৫০ অক্ষর হতে পারবে"), Display(Name = "সরবরাহকারীর নাম", Prompt = "Name of the Supplier")]
         public string NameOfSupplier { get; set; }
         [Required, MinLength(3), MaxLength(50), Display(Name = "সরবরাহকারীর ঠিকানা", Prompt = "Address of the Supplier")]
         public string AddressOfSupplier { get; set; }
