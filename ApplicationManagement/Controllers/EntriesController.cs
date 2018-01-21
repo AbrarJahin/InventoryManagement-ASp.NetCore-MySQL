@@ -50,7 +50,7 @@ namespace ApplicationManagement.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EntryDate,InitialCount,NameOfSupplier,AddressOfSupplier,DescriptionOfProduct,NumberOfSuppliedProduct,SuppliedProductUnitPrice,SuppliedProductTotalPrice,TotalNoOfProductAfterInserted,ReceiveDate,NameOfUser,AddressOfUser,DemandnoteNo,NumberOfReceivedProduct,TotalNoOfProductAfterdeduction,Id,CreatedTime,CreatorUserId,CreatorIPAddress,LastModifiedTime,LastModifireUserId,LastModifireIPAddress")] Entry entry)
+        public async Task<IActionResult> Create([Bind("EntryDate,InitialCount,NameOfSupplier,AddressOfSupplier,DescriptionOfProduct,NumberOfSuppliedProduct,SuppliedProductUnitPrice,SuppliedProductTotalPrice,TotalNoOfProductAfterInserted,ReceiveDate,NameOfUser,AddressOfUser,DemandnoteNo,NumberOfReceivedProduct,TotalNoOfProductAfterdeduction")] Entry entry)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace ApplicationManagement.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("EntryDate,InitialCount,NameOfSupplier,AddressOfSupplier,DescriptionOfProduct,NumberOfSuppliedProduct,SuppliedProductUnitPrice,SuppliedProductTotalPrice,TotalNoOfProductAfterInserted,ReceiveDate,NameOfUser,AddressOfUser,DemandnoteNo,NumberOfReceivedProduct,TotalNoOfProductAfterdeduction,Id,CreatedTime,CreatorUserId,CreatorIPAddress,LastModifiedTime,LastModifireUserId,LastModifireIPAddress")] Entry entry)
+        public async Task<IActionResult> Edit(long id, [Bind("EntryDate,InitialCount,NameOfSupplier,AddressOfSupplier,DescriptionOfProduct,NumberOfSuppliedProduct,SuppliedProductUnitPrice,SuppliedProductTotalPrice,TotalNoOfProductAfterInserted,ReceiveDate,NameOfUser,AddressOfUser,DemandnoteNo,NumberOfReceivedProduct,TotalNoOfProductAfterdeduction")] Entry entry)
         {
             if (id != entry.Id)
             {

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,8 +35,11 @@ namespace ApplicationManagement
             //Add Configuration Service
             services.AddSingleton<IConfiguration>(Configuration);
 
-            // Add framework services.
-            services.AddMvc();
+            // Add framework services
+            services.AddMvc(options =>
+            {
+                options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());   //default XCSRF protection for all routes
+            });
 
             //Configure Connection and EntityFramework Service.
 #if DEBUG

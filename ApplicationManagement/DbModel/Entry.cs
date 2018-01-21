@@ -7,21 +7,21 @@ namespace ApplicationManagement.DbModel
     {
         [Required(ErrorMessage = "দয়া করে পণ্য গ্রহণ করার তারিখ দিন"), Display(Name = "তারিখ", Prompt = "Date of Entry")]  //, MySqlCharset("utf8_unicode_ci")
         public DateTime EntryDate { get; set; }
-        [Required, Range(0, int.MaxValue, ErrorMessage = "প্রারম্ভিক স্থিতির সঠিক সংখ্যা দিন"), Display(Name = "প্রারম্ভিক স্থিতি", Prompt = "Initial count")]
+        [Required(ErrorMessage = "দয়া করে প্রারম্ভিক স্থিতির সঠিক সংখ্যা দিন"), Range(0, int.MaxValue, ErrorMessage = "প্রারম্ভিক স্থিতির সঠিক সংখ্যা দিন"), Display(Name = "প্রারম্ভিক স্থিতি", Prompt = "Initial count")]
         public int InitialCount { get; set; }
-        [Required, MinLength(3, ErrorMessage = "সরবরাহকারীর নাম নূনতম ৩ অক্ষর হতে হবে"), MaxLength(50, ErrorMessage = "সরবরাহকারীর নাম সর্বোচ্চ ৫০ অক্ষর হতে পারবে"), Display(Name = "সরবরাহকারীর নাম", Prompt = "Name of the Supplier")]
+        [Required(ErrorMessage = "দয়া করে সরবরাহকারীর নাম দিন"), MinLength(3, ErrorMessage = "সরবরাহকারীর নাম নূনতম ৩ অক্ষর হতে হবে"), MaxLength(50, ErrorMessage = "সরবরাহকারীর নাম সর্বোচ্চ ৫০ অক্ষর হতে পারবে"), Display(Name = "সরবরাহকারীর নাম", Prompt = "Name of the Supplier")]
         public string NameOfSupplier { get; set; }
-        [Required, MinLength(3), MaxLength(50), Display(Name = "সরবরাহকারীর ঠিকানা", Prompt = "Address of the Supplier")]
+        [Required(ErrorMessage = "দয়া করে সরবরাহকারীর ঠিকানা দিন"), MinLength(3), MaxLength(50), Display(Name = "সরবরাহকারীর ঠিকানা", Prompt = "Address of the Supplier")]
         public string AddressOfSupplier { get; set; }
-        [Required, MinLength(10), MaxLength(100), Display(Name = "মালের বিবরণ", Prompt = "Description of Product")]
+        [Required(ErrorMessage = "দয়া করে মালের বিবরণ দিন"), MinLength(10), MaxLength(100), Display(Name = "মালের বিবরণ", Prompt = "Description of Product")]
         public string DescriptionOfProduct { get; set; }
-        [Required, Range(1, int.MaxValue), Display(Name = "সরবরাহকৃত মালের পরিমান", Prompt = "Number of product")]
+        [Required(ErrorMessage = "দয়া করে সরবরাহকৃত মালের পরিমান দিন"), Range(1, int.MaxValue), Display(Name = "সরবরাহকৃত মালের পরিমান", Prompt = "Number of product")]
         public int NumberOfSuppliedProduct { get; set; }
-        [Required, Range(0, int.MaxValue), Display(Name = "একক মুল্য", Prompt = "Unit price")]
+        [Required(ErrorMessage = "দয়া করে পন্যের একক মুল্য দিন"), Range(0, int.MaxValue), Display(Name = "একক মুল্য", Prompt = "Unit price")]
         public int SuppliedProductUnitPrice { get; set; }
-        [Required, Range(0, int.MaxValue), Display(Name = "মোট মুল্য", Prompt = "Total price")]
+        [Required(ErrorMessage = "দয়া করে পন্যের মোট মুল্য দিন"), Range(0, int.MaxValue), Display(Name = "মোট মুল্য", Prompt = "Total price")]
         public int SuppliedProductTotalPrice { get; set; }
-        [Required, Range(1, int.MaxValue), Display(Name = "মোট মালের পরিমান (পূর্বের স্থিথি সহ)", Prompt = "Aggregated total no of product")]
+        [Required(ErrorMessage = "দয়া করে মোট মালের পরিমান দিন"), Range(1, int.MaxValue), Display(Name = "মোট মালের পরিমান (পূর্বের স্থিথি সহ)", Prompt = "Aggregated total no of product")]
         public int TotalNoOfProductAfterInserted { get; set; }
 
         [Display(Name = "গ্রহনের তারিখ", Prompt = "Date of receiving")]
