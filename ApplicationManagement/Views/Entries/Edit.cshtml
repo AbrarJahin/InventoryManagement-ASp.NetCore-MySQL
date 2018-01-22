@@ -4,7 +4,7 @@
     ViewData["Title"] = "যোগকৃত প্রোডাক্ট হালনাগাদ";
 }
 
-<h2>Edit</h2>
+<h2>Edit Added Product</h2>
 
 <form asp-action="Edit">
     <div class="form-horizontal">
@@ -117,14 +117,16 @@
         <input type="hidden" asp-for="Id" />
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-warning" />
             </div>
         </div>
     </div>
 </form>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-lg btn-primary">
+        <span class="glyphicon glyphicon-list-alt"></span> Back to List
+    </a>
 </div>
 
 @section Scripts {

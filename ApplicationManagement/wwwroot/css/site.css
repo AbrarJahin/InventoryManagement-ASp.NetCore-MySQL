@@ -1,4 +1,4 @@
-﻿// Write your CSS code.
+﻿/* Write your CSS code*/
 body {
     padding-top: 54px;
 }
@@ -48,4 +48,20 @@ fieldset {
     border-radius: 4px;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.container-table {
+    display: table;
+    height: calc(100% - 50px);
+}
+
+/*Making a div in center*/
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.btn-action-group-sm
+{
+    min-width: 197px;
 }

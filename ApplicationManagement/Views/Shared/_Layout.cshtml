@@ -41,16 +41,26 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="@(pageName == "Home.Index" ? "active" : "")"><a asp-area="" asp-controller="Home" asp-action="Index">হোম</a></li>
-                    <li class="@(pageName == "Offices.Index" ? "active" : "")"><a asp-area="" asp-controller="Offices" asp-action="Index">অফিস</a></li>
-                    @*
-                        <li class="@(pageName == " JobCirculars.Index" ? "active" : "" )"><a asp-area="" asp-controller="JobCirculars" asp-action="Index">জব সার্কুলার</a></li>
-                    *@
-                    <li class="@(pageName == "Entries.Index" ? "active" : "")"><a asp-area="" asp-controller="Entries" asp-action="Index">ইনভেন্টরি</a></li>
+                    <li class="@(pageName == "Home.Index" ? "active" : "")"><a asp-area="" asp-controller="Home" asp-action="Index">
+                        <span class="glyphicon glyphicon-home"></span> হোম
+                    </a></li>
+                    <li class="@(pageName == "Offices.Index" ? "active" : "")"><a asp-area="" asp-controller="Offices" asp-action="Index">
+                        অফিস
+                    </a></li>
+                    <li class="@(pageName == " JobCirculars.Index" ? "active" : "" )"><a asp-area="" asp-controller="JobCirculars" asp-action="Index">
+                        জব সার্কুলার
+                    </a></li>
+                    <li class="@(pageName == "Entries.Index" ? "active" : "")"><a asp-area="" asp-controller="Entries" asp-action="Index">
+                        ইনভেন্টরি
+                    </a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="@(pageName == "Home.About" ? "active" : "")"><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li class="@(pageName == "Home.Contact" ? "active" : "")"><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li class="@(pageName == "Home.About" ? "active" : "")"><a asp-area="" asp-controller="Home" asp-action="About">
+                        About
+                    </a></li>
+                    <li class="@(pageName == "Home.Contact" ? "active" : "")"><a asp-area="" asp-controller="Home" asp-action="Contact">
+                        Contact
+                    </a></li>
                 </ul>
             </div>
         </div>

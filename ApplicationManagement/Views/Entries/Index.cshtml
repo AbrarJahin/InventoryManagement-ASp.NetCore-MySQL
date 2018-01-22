@@ -1,13 +1,13 @@
-@model IEnumerable<ApplicationManagement.DbModel.Entry>
+﻿@model IEnumerable<ApplicationManagement.DbModel.Entry>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "ইনভেন্টরি";
 }
 
-<h2>Index</h2>
-
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-lg btn-success">
+        <span class="glyphicon glyphicon-edit"></span> নতুন পণ্য যোগ করুন
+    </a>
 </p>
 <table class="table">
     <thead>
@@ -61,19 +61,7 @@
                     @Html.DisplayNameFor(model => model.CreatedTime)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.CreatorUserId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CreatorIPAddress)
-                </th>
-                <th>
                     @Html.DisplayNameFor(model => model.LastModifiedTime)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.LastModifireUserId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.LastModifireIPAddress)
                 </th>
             <th></th>
         </tr>
@@ -130,24 +118,20 @@
                 @Html.DisplayFor(modelItem => item.CreatedTime)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CreatorUserId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatorIPAddress)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.LastModifiedTime)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.LastModifireUserId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastModifireIPAddress)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <div class="btn-group btn-action-group-sm">
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">
+                        <span class="glyphicon glyphicon-eye-open"></span> Show
+                    </a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">
+                        <span class="glyphicon glyphicon-edit"></span> Edit
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">
+                        <span class="glyphicon glyphicon-trash"></span> Delete
+                    </a>
+                </div>
             </td>
         </tr>
 }
