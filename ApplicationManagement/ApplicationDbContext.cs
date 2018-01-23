@@ -6,30 +6,18 @@ using System.Threading.Tasks;
 using System.Threading;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
-public class ApplicationDbContext : DbContext
+public class ApplicationDbContext :IdentityDbContext<User, UserRole, long>  //ID Type = long
 {
-    //List all tables here
-    public DbSet<Advertisement> Advertisements { get; set; }
-    public DbSet<Address> Addresses { get; set; }
-    public DbSet<Country> Countries { get; set; }
-    public DbSet<CountryPerson> CountryPersons { get; set; }
-    public DbSet<EducationResult> EducationResults { get; set; }
-    public DbSet<Experience> Experiences { get; set; }
-    public DbSet<JobCircular> JobCirculars { get; set; }
-    public DbSet<Language> Languages { get; set; }
-    public DbSet<Office> Offices { get; set; }
-    public DbSet<Payment> Payments { get; set; }
-    public DbSet<Person> Persons { get; set; }
-    public DbSet<Reference> References { get; set; }
-    public DbSet<Research> Researches { get; set; }
-    public DbSet<ResearchDegree> ResearchDegrees { get; set; }
-    public DbSet<TeacherApplication> TeacherApplications { get; set; }
-    public DbSet<Training> Trainings { get; set; }
+    //Identity Tables
+    public DbSet<User> Users { get; set; }
+    public DbSet<UserRole> UserRoles { get; set; }
+
+    //Add all DB tablesOnModelCreating
     public DbSet<Entry> Entries { get; set; }
 
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-: base(options)
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options): base(options)
     {}
 
     public override int SaveChanges()
@@ -59,21 +47,15 @@ public class ApplicationDbContext : DbContext
     //Fluent API to make Composite Key
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Country>(e =>
+        modelBuilder.Entity<User>(u =>
         {
-            e.HasAlternateKey(c => new { c.BengaliName });
-            e.HasAlternateKey(c => new { c.EnglishName });
-            e.HasAlternateKey(c => new { c.ShortName });
+            u.HasAlternateKey(user => new { user.UserName });   //Add unique user name for all
         });
 
-        modelBuilder.Entity<CountryPerson>(cp =>
-        {
-            cp.HasOne(p => p.Person).WithMany(c => c.VisitedCountries).HasForeignKey(p => p.PersonID);
-            cp.HasOne(c => c.Country).WithMany(p => p.Visitors).HasForeignKey(c => c.CountryID);
-
-            //For Ensuring only 1 entry per person
-            cp.HasAlternateKey(c => new { c.CountryID, c.PersonID });
-        });
+        // Customize the ASP.NET Identity model and override the defaults if needed.
+        // For example, you can rename the ASP.NET Identity table names and more.
+        // Add your customizations after calling base.OnModelCreating(builder);
+        base.OnModelCreating(modelBuilder);
     }
 
     private void AddTimestamps()
@@ -118,9 +100,7 @@ public class ApplicationDbContext : DbContext
         {
             //... perform other seed operations
             context.AddRange(
-                new Country { BengaliName = "England", EnglishName = "England", ShortName = "en" },
-                new Country { BengaliName = "France", EnglishName = "France", ShortName = "fr" },
-                new Country { BengaliName = "Bangladesh", EnglishName = "Bangladesh", ShortName = "bd" }
+                
             );
             context.SaveChangesAsync();
         }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using ApplicationManagement.DbModel;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -51,9 +52,12 @@ namespace ApplicationManagement
 #else
             services.AddDbContext<ApplicationDbContext>(options => options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
 #endif
+            //Add Identity Service
+            services.AddIdentity<User, UserRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext, long>() //ID Type = long
+                .AddDefaultTokenProviders();
 
-            //HTML minifire service
-            //With This - using WebMarkupMin.AspNetCore1;
+            //HTML minifire service  - using WebMarkupMin.AspNetCore1;
             services.AddWebMarkupMin(
                 options =>
                 {
@@ -109,6 +113,9 @@ namespace ApplicationManagement
             //With This - using WebMarkupMin.AspNetCore1;
             app.UseWebMarkupMin();
 
+            app.UseIdentity();  //Configure Identity
+
+            //Configure MVC and Routes
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

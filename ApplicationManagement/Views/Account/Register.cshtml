@@ -1,0 +1,68 @@
+﻿@model ApplicationManagement.ViewModel.RegisterView
+
+@{
+    ViewData["Title"] = "নতুন ব্যবহারকারীর রেজিস্ট্রেশন";
+}
+
+<form asp-action="Register" method="post" class="form-horizontal">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <fieldset class="fieldset-bordered">
+        <legend class="legend-bordered">Register</legend>
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="FullName" class="control-label col-xs-4 vertical-middle"></label>
+                    <div class="col-xs-8">
+                        <input type="text" asp-for="FullName" class="form-control" />
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="UserName" class="control-label col-xs-4 vertical-middle"></label>
+                    <div class="col-xs-8">
+                        <input type="text" asp-for="UserName" class="form-control" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label col-xs-4 vertical-middle"></label>
+                    <div class="col-xs-8">
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword" class="control-label col-xs-4 vertical-middle"></label>
+                    <div class="col-xs-8">
+                        <input asp-for="ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </fieldset>
+    <div class="form-group">
+        <div class="col-xs-offset-3 col-xs-6 btn-group">
+            <button type="submit" class="btn btn-success">রেজিস্ট্রেশন সম্পূর্ণ করুন (Complete Registration)</button>
+            <a asp-action="Login" asp-controller="Account" class="btn btn-info">
+                <span class="glyphicon glyphicon-list-alt"></span> Login
+            </a>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
